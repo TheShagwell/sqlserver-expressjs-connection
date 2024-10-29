@@ -1,4 +1,3 @@
-import express from "express";
 import sql from "mssql";
 import { Router } from "express";
 import config from "../config.mjs";
