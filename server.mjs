@@ -3,7 +3,7 @@ import cors from "cors";
 import blogRoute from "./routes/blog.mjs"
 
 const app = express();
-const PORT = process.env.PORT || 9050;
+// const PORT = process.env.PORT || 9050;
 
 app.use(cors());
 app.use(blogRoute)
@@ -13,6 +13,6 @@ app.get("/", (req, res) => {
 });
 
 app.listen(9050, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port`);
 });
 
