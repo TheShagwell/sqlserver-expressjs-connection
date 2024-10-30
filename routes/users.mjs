@@ -1,8 +1,13 @@
 import express from "express";
-import sql from "mssql";
+import * as usersController from "../controllers/userControllers.mjs";
 
 const router = express.Router();
 
+router.get('/users', usersController.getAllItems);
+router.get('/users/:id', usersController.getItemById);
+router.post('/users', usersController.createItem);
+router.put('/users/:id', usersController.updateItem);
+router.delete('/users/:id', usersController.deleteItem);
 
 
 export default router;

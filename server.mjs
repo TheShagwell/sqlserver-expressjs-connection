@@ -6,6 +6,8 @@ import usersRoute from "./routes/users.mjs"
 const app = express();
 // const PORT = process.env.PORT || 9050;
 
+app.use(express.json());
+
 app.use(cors());
 app.use(blogRoute);
 app.use("/api", usersRoute);
