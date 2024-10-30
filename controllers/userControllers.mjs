@@ -11,12 +11,40 @@ async function getAllItems(req, res) {
   }
 }
 
+// async function searchByDetails(req, res) {
+//   try {
+//       const { name, email } = req.query;
+      
+//       let query = 'SELECT * FROM Users WHERE 1=1';
+//       const params = [];
+
+//       if (name) {
+//           query += ' AND (name LIKE @name)';
+//           params.push({ name: `%${name}%` });
+//       }
+
+//       if (email) {
+//           query += ' AND email LIKE @email';
+//           params.push({ email: `%${email}%` });
+//       }
+
+//       const request = await pool.request();
+//       params.forEach(param => Object.keys(param).forEach(key => request.input(key, sql.NVarChar, param[key])));
+      
+//       const result = await request.query(query);
+      
+//       res.json(result.recordset);
+//   } catch (err) {
+//       res.status(500).send(err.message);
+//   }
+// };
+
 async function getItemById(req, res) {
   try {
     // Validate and sanitize the id 
     const id = parseInt(req.params.id);
     if(isNaN(id) || id <= 0)
-      return res.status(400).send("Invalid ID")
+      return res.status(400).send("Invalid ID");
 
     const pool = await sql.connect(config);
     const data = await pool
@@ -93,4 +121,5 @@ async function deleteItem(req, res) {
   }
 }
 
-export { getAllItems, getItemById, createItem, updateItem, deleteItem };
+export { getAllItems, searchByDetails, getItemById, createItem, updateItem, deleteItem };
+
