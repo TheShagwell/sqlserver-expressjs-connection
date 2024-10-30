@@ -121,5 +121,5 @@ async function deleteItem(req, res) {
   }
 }
 
-export { getAllItems, searchByDetails, getItemById, createItem, updateItem, deleteItem };
+export { getAllItems, getItemById, createItem, updateItem, deleteItem };
 
