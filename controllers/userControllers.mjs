@@ -76,7 +76,7 @@ async function createItem(req, res) {
       return res.status(400).send("Email is already in use");
 
     if (!req.body.name || !req.body.email)
-      return res.status(400).send("Input a name or email");
+      return res.status(400).send("Required field must be filled");
 
     const data = await pool
       .request()
