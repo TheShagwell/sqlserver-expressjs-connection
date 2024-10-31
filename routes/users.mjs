@@ -3,12 +3,12 @@ import * as usersController from "../controllers/userControllers.mjs";
 
 const router = express.Router();
 
-router.get('/users', usersController.getAllItems);
-router.get('/users/:id', usersController.getItemById);
+router.get('/users', usersController.getAllUsers);
+router.get('/users/:id', usersController.getUserById);
 // router.get('/search', usersController.searchByDetails)
-router.post('/users', usersController.createItem);
-router.put('/users/:id', usersController.updateItem);
-router.delete('/users/:id', usersController.deleteItem);
+router.post('/users', usersController.createUser);
+router.put('/users/:id', usersController.updateUser);
+router.delete('/users/:id', usersController.deleteUser);
 
 
 export default router;

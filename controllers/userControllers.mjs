@@ -1,7 +1,7 @@
 import sql from "mssql";
 import config from "../config.mjs";
 
-async function getAllItems(req, res) {
+async function getAllUsers(req, res) {
   try {
     const pool = await sql.connect(config);
     const data = await pool.request().query("select * from Users");
@@ -39,7 +39,7 @@ async function getAllItems(req, res) {
 //   }
 // };
 
-async function getItemById(req, res) {
+async function getUserById(req, res) {
   try {
     // Validate and sanitize the id 
     const id = parseInt(req.params.id);
@@ -61,7 +61,7 @@ async function getItemById(req, res) {
   }
 }
 
-async function createItem(req, res) {
+async function createUser(req, res) {
   try {
     const pool = await sql.connect(config);
 
@@ -91,7 +91,7 @@ async function createItem(req, res) {
   }
 }
 
-async function updateItem(req, res) {
+async function updateUser(req, res) {
   try {
     const pool = await sql.connect(config);
     await pool
@@ -102,13 +102,13 @@ async function updateItem(req, res) {
       .query(
         "UPDATE Users SET name = @name, description = @description WHERE id = @id"
       );
-    res.json({ message: "Item updated successfully" });
+    res.json({ message: "User updated successfully" });
   } catch (err) {
     res.status(500).send(err.message);
   }
 }
 
-async function deleteItem(req, res) {
+async function deleteUser(req, res) {
   try {
     const pool = await sql.connect(config);
     await pool
@@ -121,5 +121,5 @@ async function deleteItem(req, res) {
   }
 }
 
-export { getAllItems, getItemById, createItem, updateItem, deleteItem };
+export { getAllUsers, getUserById, createUser, updateUser, deleteUser };
 
