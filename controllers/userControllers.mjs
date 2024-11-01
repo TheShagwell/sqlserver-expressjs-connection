@@ -11,34 +11,6 @@ async function getAllUsers(req, res) {
   }
 }
 
-// async function searchByDetails(req, res) {
-//   try {
-//       const { name, email } = req.query;
-      
-//       let query = 'SELECT * FROM Users WHERE 1=1';
-//       const params = [];
-
-//       if (name) {
-//           query += ' AND (name LIKE @name)';
-//           params.push({ name: `%${name}%` });
-//       }
-
-//       if (email) {
-//           query += ' AND email LIKE @email';
-//           params.push({ email: `%${email}%` });
-//       }
-
-//       const request = await pool.request();
-//       params.forEach(param => Object.keys(param).forEach(key => request.input(key, sql.NVarChar, param[key])));
-      
-//       const result = await request.query(query);
-      
-//       res.json(result.recordset);
-//   } catch (err) {
-//       res.status(500).send(err.message);
-//   }
-// };
-
 async function getUserById(req, res) {
   try {
     // Validate and sanitize the id 
