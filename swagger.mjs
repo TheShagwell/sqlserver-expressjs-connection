@@ -1,12 +1,12 @@
-// swagger.js
-const swaggerJsdoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
+// swagger.mjs
+import swaggerJsdoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
   
 const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Nodejs Auth API',
+      title: 'Express JS CRUD API',
       version: '1.0.0',
       description: 'A very simple user management CRUD API operation',
       license: {
@@ -25,12 +25,12 @@ const options = {
     },
     schemes: ['http', 'https']
   },
-  apis: ['./routes/*.js'], // Path to your API routes
+  apis: ['./routes/*.mjs'], // Path to your API routes
 };
 
 const specs = swaggerJsdoc(options);
 
-module.exports = {
+export {
   specs,
   swaggerUi,
 };
