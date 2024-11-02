@@ -4,7 +4,7 @@ import blogRoute from "./routes/blog.mjs"
 import usersRoute from "./routes/users.mjs"
 
 const app = express();
-// const PORT = process.env.PORT || 9050;
+const PORT = process.env.PORT || 9050;
 
 app.use(express.json());
 
@@ -18,5 +18,6 @@ app.get("/", (req, res) => {
 
 app.listen(9050, () => {
   console.log(`Server is running on port`);
+  console.log(`Swagger documentation available at http://localhost:${PORT}/api-docs`)
 });
 
