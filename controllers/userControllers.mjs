@@ -37,6 +37,23 @@ async function createUser(req, res) {
   try {
     const pool = await sql.connect(config);
 
+     // Basic email validation
+     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+     if (!emailRegex.test(req.body.email)) {
+       return res.status(400).send("Please enter a valid email address");
+     }
+
+    // Check if username is already taken
+    const checkUsername = await pool
+      .request()
+      .input("name", sql.NVarChar, req.body.name)
+      .query("SELECT COUNT(*) as count FROM Users WHERE name = @name");
+
+    if (checkUsername.recordset[0].count > 0) {
+      return res.status(400).send("Username is already taken");
+    }
+
+    // Check if email already exists in the database
     const checkEmail = await pool
       .request()
       .input("email", sql.NVarChar, req.body.email)
