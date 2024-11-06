@@ -6,7 +6,7 @@ This repository contains the SQL Server connection configuration for NodeJS Fram
 - MSSQL
 - Swagger UI Docs
 
-** Clone the repository **
+**Clone the repository**
 ```bash
 git clone https://github.com/TheShagwell/sqlserver-expressjs-connection.git
 cd sqlserver-expressjs-connection
