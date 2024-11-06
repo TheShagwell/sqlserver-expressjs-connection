@@ -25,4 +25,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser to view the project.
+**Running the Project on the browser**
+You will need to add up the port you assigned to the server.
+ 
+Open [http://localhost:[PORT]](http://localhost:[$PORT]) in your browser to view the project.
